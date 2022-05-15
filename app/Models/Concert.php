@@ -20,4 +20,18 @@ class Concert extends Model
             get: fn ($value, $attributes) => Carbon::parse($attributes['date'])->format('F j, Y')
         );
     }
+
+    protected function formattedStartTime(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value, $attributes) => Carbon::parse($attributes['date'])->format('g:ia')
+        );
+    }
+
+    protected function ticketPriceInDollars(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value, $attributes) => number_format($attributes['ticket_price'] / 100, 2)
+        );
+    }
 }
