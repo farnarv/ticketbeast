@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('subtitle');
-            $table->datetime('date');
+            $table->dateTime('date');
             $table->integer('ticket_price');
             $table->string('venue');
             $table->string('venue_address');
@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('state');
             $table->string('zip');
             $table->text('additional_information');
+            $table->dateTime('published_at')->nullable();
             $table->timestamps();
         });
     }

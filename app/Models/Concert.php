@@ -14,6 +14,11 @@ class Concert extends Model
     protected $guarded = [];
     protected $dates = ['date'];
 
+    public function scopePublished($query)
+    {
+        return $query->whereNotNull('published_at');
+    }
+
     protected function formattedDate(): Attribute
     {
         return Attribute::make(
